@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>family barbeques chatroom</title>
+    <base href="https://cdn.jsdelivr.net/gh/marble892/compressed-sites/fambbqs/">
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="window">
+      <div class="title-bar">
+        <div class="title-text">family barbeques</div>
+      </div>
+      <div class="subheader">
+        Anonymous Chat
+      </div>
+      <div class="toolbar">
+        <span class="status" id="status">Connecting...</span>
+        <span class="unread" id="unread">Unread: 0</span>
+      </div>
+      <div class="content">
+        <div class="main">
+          <div class="chat-area" id="chat-area" aria-live="polite"></div>
+          <div class="typing" id="typing">&nbsp;</div>
+          <form class="composer" id="composer">
+            <input
+              id="message"
+              type="text"
+              autocomplete="off"
+              placeholder="Type a message and hit Enter"
+              maxlength="400"
+            />
+            <button type="submit">Send</button>
+          </form>
+          <div class="composer-meta">
+            <span id="char-count">0 / 400</span>
+            <span class="hint">No signups. No history. Just chatting.</span>
+          </div>
+        </div>
+        <aside class="sidebar">
+          <div class="panel">
+            <div class="panel-title">Room topic</div>
+            <div class="panel-body" id="topic">Loading...</div>
+          </div>
+          <div class="panel">
+            <div class="panel-title">Online now</div>
+            <ul class="user-list" id="user-list"></ul>
+          </div>
+          <div class="panel">
+            <div class="panel-title">Quick controls</div>
+            <div class="panel-body controls">
+              <label>
+                Search
+                <input type="text" id="search" placeholder="Find in chat" />
+              </label>
+              <label><input type="checkbox" id="toggle-sound" /> Sound</label>
+              <label>
+                Volume
+                <input type="range" id="sound-volume" min="0" max="100" value="30" />
+              </label>
+              <button type="button" id="sound-test">Test sound</button>
+              <label><input type="checkbox" id="toggle-timestamps" checked /> Timestamps</label>
+              <label><input type="checkbox" id="toggle-scroll" checked /> Auto-scroll</label>
+              <label><input type="checkbox" id="toggle-compact" /> Compact mode</label>
+              <label><input type="checkbox" id="toggle-hide-system" /> Hide system</label>
+              <label><input type="checkbox" id="toggle-mentions" checked /> Highlight mentions</label>
+              <button type="button" id="clear-chat">Clear chat</button>
+              <button type="button" id="pin-last">Pin last message</button>
+              <button type="button" id="clear-pins">Clear pins</button>
+              <button type="button" id="copy-last">Copy last message</button>
+              <button type="button" id="save-transcript">Save transcript</button>
+            </div>
+          </div>
+          <div class="panel">
+            <div class="panel-title">Pinned</div>
+            <ul class="pinned" id="pinned-list"></ul>
+          </div>
+          <div class="panel">
+            <div class="panel-title">Slash commands</div>
+            <ul class="commands">
+              <li>/nick NewName</li>
+              <li>/name NewName</li>
+              <li>/setname NewName</li>
+              <li>/me does something</li>
+              <li>/topic New topic</li>
+              <li>/motd</li>
+              <li>/who</li>
+              <li>/whois Name#ID</li>
+              <li>/away message</li>
+              <li>/afk message</li>
+              <li>/back</li>
+              <li>/status feeling</li>
+              <li>/roll 2d6</li>
+              <li>/flip</li>
+              <li>/8ball question</li>
+              <li>/color blue|red|teal|gold|navy|purple</li>
+              <li>/time</li>
+              <li>/uptime</li>
+              <li>/id</li>
+              <li>/help</li>
+              <li>/shrug (local)</li>
+              <li>/clear (local)</li>
+            </ul>
+          </div>
+          <div class="panel">
+            <div class="panel-title">Room stats</div>
+            <div class="panel-body" id="stats"></div>
+          </div>
+        </aside>
+      </div>
+    </div>
+    <script src="app.js"></script>
+  <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"e8d4208e7be649a89a08166b14bbc904","r":1,"server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
