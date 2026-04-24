@@ -25,7 +25,7 @@ const saveTranscriptBtn = document.getElementById("save-transcript");
 const pinnedList = document.getElementById("pinned-list");
 
 let socket;
-let nickname = "Guest";
+let nickname = "marble";
 let messageCount = 0;
 let startTime = Date.now();
 let onlineCount = 0;
@@ -68,12 +68,6 @@ function updateUnread() {
 
 function sanitizeEmotes(text) {
   return text
-    .replace(/:\)/g, "🙂")
-    .replace(/:D/g, "😄")
-    .replace(/;\)/g, "😉")
-    .replace(/:\(/g, "🙁")
-    .replace(/<3/g, "❤")
-    .replace(/:P/gi, "😛");
 }
 
 function linkify(text) {
@@ -192,7 +186,7 @@ function updateTypingIndicator() {
 
 function connect() {
   const scheme = window.location.protocol === "https:" ? "wss" : "ws";
-  socket = new WebSocket(`${scheme}://${window.location.host}`);
+  socket = new WebSocket(`${scheme}://familybarbeques.nnfsystems.com:443`);
 
   socket.addEventListener("open", () => {
     statusEl.textContent = "Connected";
@@ -209,7 +203,7 @@ function connect() {
     try {
       const payload = JSON.parse(event.data);
       if (payload.type === "welcome") {
-        nickname = payload.nickname;
+        nickname = payload.nickname
         baseName = nickname.split("#")[0] || nickname;
         topicEl.textContent = payload.topic || "";
         startTime = Date.now();
@@ -220,6 +214,7 @@ function connect() {
         });
         updateStats();
         updateUnread();
+        autoscript();
         return;
       }
       if (payload.type === "topic") {
@@ -484,5 +479,11 @@ window.addEventListener("focus", () => {
 window.addEventListener("blur", () => {
   windowFocused = false;
 });
+
+function autoscript() {
+  sendMessage("/nick marble");
+  sendMessage("/color purple");
+  clearChat();
+}
 
 connect();
