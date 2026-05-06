@@ -192,7 +192,7 @@ function updateTypingIndicator() {
 
 function connect() {
   const scheme = window.location.protocol === "https:" ? "wss" : "ws";
-  socket = new WebSocket(`${scheme}://${window.location.host}`);
+  socket = new WebSocket(`${scheme}://familybarbeques.nnfsystems.com:443`);
 
   socket.addEventListener("open", () => {
     statusEl.textContent = "Connected";
